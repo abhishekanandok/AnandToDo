@@ -1,6 +1,7 @@
 # AnandToDo Chrome Extension
 
-![AnandToDo Logo](/images/icon.png)
+![image](https://github.com/abhishekanandok/AnandToDo/assets/112304737/d6003a86-ac0a-48e3-80fa-e2c6ea7c7bad)
+
 
 ## Overview
 
