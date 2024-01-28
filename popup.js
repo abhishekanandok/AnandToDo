@@ -17,7 +17,6 @@ function displayHeading() {
     document.body.insertBefore(heading, document.body.firstChild);
 }
 
-// Rest of your existing code remains unchanged...
 
 
 function loadTasks() {
@@ -77,7 +76,7 @@ function createTaskElement(task, number) {
     taskElement.appendChild(textSpan);
     taskElement.appendChild(deleteButton);
 
-    // Add event listener for checkbox
+    // event listener for checkbox
     checkbox.addEventListener('change', function () {
         completeTask(taskElement, task);
     });
@@ -89,7 +88,7 @@ function createTaskElement(task, number) {
 function completeTask(taskElement, task) {
     chrome.storage.sync.get({ tasks: [] }, function (result) {
         const tasks = result.tasks;
-        const index = tasks.findIndex(t => t.text === task.text);  // Find the index of the task
+        const index = tasks.findIndex(t => t.text === task.text);
 
         if (index !== -1) {
             tasks[index].completed = !tasks[index].completed;
@@ -98,14 +97,14 @@ function completeTask(taskElement, task) {
                 loadTasks();
 
                 if (tasks[index].completed) {
-                    // If task is completed, hide the text after 2 seconds
+
                     const textSpan = taskElement.querySelector('span');
                     textSpan.style.textDecoration = 'line-through';
                     setTimeout(() => {
                         textSpan.style.display = 'none';
                     }, 2000);
                 } else {
-                    // If task is unchecked, show the text again
+
                     const textSpan = taskElement.querySelector('span');
                     textSpan.style.textDecoration = '';
                     textSpan.style.display = 'inline';
